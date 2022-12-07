@@ -4,6 +4,9 @@ from django.db import models
 class Category(models.Model):
     title = models.CharField(max_length=100)
 
+    def __str__(self) -> str:
+        return self.title
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -11,7 +14,10 @@ class Product(models.Model):
     quantity = models.IntegerField()
     description = models.TextField()
     status = models.CharField(max_length=15, choices=[('есть в наличии', 'in stock'), ('нет в наличии', 'out of stock') , ('ожидается', 'pending')])
+ 
 
+    def __str__(self) -> str:
+        return f'[{self.category}] -> {self.title}'
 
 # class Product(models.Model):
 #     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
