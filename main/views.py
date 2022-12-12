@@ -14,7 +14,7 @@ class CategoryViewSet(ModelViewSet):
     serializer_class = CategorySerializers
 
 class ProductViewSet(ModelViewSet):
-    queryset  = Product.objects.all()
+    queryset  = Product.objects.all().order_by('id')
     serializer_class = ProductSerializers
     permission_classes = [IsAdminUser]
     # filterset_fields = ['category', 'status']
