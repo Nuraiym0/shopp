@@ -19,15 +19,18 @@ class Product(models.Model):
     def __str__(self) -> str:
         return f'[{self.category}] -> {self.title}'
 
-# class Product(models.Model):
-#     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-#     title = models.CharField(max_length=255)
-    # price = models.DecimalField(max_digits=10, decimal_places=2) #99999999999.99
-#     quantity = models.IntegerField()
-#     description = models.TextField()
-#     status = models.CharField(max_length=15, choices=[('est v nalichii', 'in stock'), ('net v nalichii', 'out of stock'),('ojidaetsya', 'pending')])
+
+    @property
+    def average_rating(self):
+        ratings = self.ratings.all()
+        values = []
+        for ratings in ratings:
+            values.append(ratings.value)
+        if values:
+            return sum(values) / len (values)
+        return 0
 
 
 
-
-
+    class Meta:
+        ordering = ['id']
