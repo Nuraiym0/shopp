@@ -30,7 +30,9 @@ class ProductViewSet(ModelViewSet):
         return [IsAdminUser()] # разрешаем только админам
 
 
-    @swagger_auto_schema(manual_parameters=[openapi.Parameter('q', openapi.IN_QUERY, type=openapi.TYPE_STRING)])
+    @swagger_auto_schema(manual_parameters=[
+        openapi.Parameter('q', openapi.IN_QUERY, type=openapi.TYPE_STRING)
+        ])
     @action(['GET'], detail=False)
     def search(self, request):
         # /products/search/?q=hello
