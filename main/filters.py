@@ -15,3 +15,18 @@ class ProductFilter(FilterSet):
 
 
 
+
+
+# from django_filters.rest_framework import FilterSet
+# import django_filters
+
+# from .models import Course
+
+
+# class CourseFilter(FilterSet):
+#     users_filter = django_filters.CharFilter(field_name='author')
+#     author_rating = django_filters.CharFilter(field_name='author__rating')
+    
+#     class Meta:
+#         model = Course
+#         fields = ['users_filter', 'author_rating']

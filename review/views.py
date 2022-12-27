@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 # from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .serializers import CommentSerializer, RetingSerializer
+# from .serializers import CommentSerializer, RetingSerializer
 from .models import Comment, Reting
 from .permissions import IsAuthorOrReadOnly
 
@@ -40,7 +40,7 @@ class CreateRatingAPIView(APIView):
 
         
 
-
+filter
 
 
 
